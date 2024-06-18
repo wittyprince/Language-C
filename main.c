@@ -27,6 +27,12 @@ int main() { // main()入口函数
     printf("%c\n", c4); // a
     printf("%d\n", c4); // 97
 
+//    String s = ""; // 注意: C语言中没有定义字符串型变量的关键字，利用字符数组来存放字符串。
+    char s1[] = "abc";
+    char s2[] = "abcdef";
+    printf("%5s\n", s1); //  abc,右对齐, abc前面有两个空格
+    printf("%5s\n", s2); // abcdef, 并没有被截掉为5个字符
+
 
     return 0; // 函数的返回值
 }
