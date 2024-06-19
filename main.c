@@ -3,6 +3,19 @@
 #define PI1 3+2
 #define PI2 (3 + 2)
 
+/**
+ * 数组传递的是数组的地址(即数组的首地址)
+ * 所以在该函数中对数组进行修改会影响原数组
+ * 另外，数组的长度是传递不过去的，需要另行定义变量来传递，如 int len
+ */
+void print(int a[], int len) {
+    for (int j = 0; j < len; ++j) {
+        printf("%d\n", a[j]);
+    }
+    a[3] = 30;
+    printf("\n");
+}
+
 int main() { // main()入口函数
     int i = 123;
     printf("Hello, World!\n"); // 函数内的代码内容
