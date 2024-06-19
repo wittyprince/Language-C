@@ -148,3 +148,30 @@ void exchangeSomeChange() {
 //    printf("total1=%d\n", total1 + 1);
     printf("%d\n", exchange);
 }
+
+/**
+ * 数组初始化(赋值)
+ */
+void arrayAssign() {
+    int a[10] = {1, 2, 3, 4, 5};
+
+    int b[10]={0};
+//    b[10] = {1, 2, 3}; // 不能先定义数组变量，再对数据变量进行赋值，此句编译报错
+    b[1] = 1; // 其实是可以使用该种方式对数组中的每一个位置进行赋值
+}
+
+/**
+ * 数组越界
+ */
+void riskOfIndexOutOfBound() {
+    int a[5] = {1, 3, 5, 7, 9};
+    int j = 20;
+    int i = 10;
+    int k = 30;
+    a[5] = 6; // 越界访问
+    a[6] = 11; // 越界访问，会造成数据异常，这是因为会覆盖内存地址造成的
+    printf("i=%d\n", i); // i=11
+    printf("k=%d\n", k); // k=6
+    printf("a[5]=%d\n", a[5]); // a[5]=6
+    printf("a[6]=%d\n", a[6]); // a[6]=11
+}
