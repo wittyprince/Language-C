@@ -1,4 +1,5 @@
 #include <stdio.h> // 头文件, printf需要使用该头文件
+#include "string.h"
 
 #define PI1 3+2
 #define PI2 (3 + 2)
@@ -13,6 +14,18 @@ void print(int a[], int len) {
         printf("%d\n", a[j]);
     }
     a[3] = 30;
+    printf("\n");
+}
+
+/**
+ * 打印字符数组
+ */
+void printCharArray(char c[]) {
+    int i = 0;
+    while (c[i]) {
+        printf("%c", c[i]);
+        i++;
+    }
     printf("\n");
 }
 
