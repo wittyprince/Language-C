@@ -29,6 +29,32 @@ void printCharArray(char c[]) {
     printf("\n");
 }
 
+void change(int j) {
+    j = 6;
+}
+
+void changeWithPointer(int *k) {
+    *k = 7;
+}
+
+void referenceOrValueTransfer() {
+    int i = 5;
+    printf("%d\n", i);
+    // C 语言中，函数的调用是值传递，实参赋值给形参。即把i赋值给j。所以对j进行改变是不会影响i的。
+    change(i);
+    printf("%d\n", i);
+    changeWithPointer(&i); // 此时仍然是值传递，只不过这里的值是地址值
+    printf("%d\n", i);
+
+
+    // 上面调用change()与下面更改b的值原理类似
+    int a = 10;
+    int b = a;
+    printf("before a =%d\n", a);
+    b = 5;
+    printf("after a = %d\n", a);
+}
+
 int main() { // main()入口函数
     int i = 123;
     printf("Hello, World!\n"); // 函数内的代码内容
