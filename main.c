@@ -225,3 +225,20 @@ void charReverse() {
         printf("%d\n", 0);
     }
 }
+
+/**
+ * & 取地址, 又叫引用
+ * * 取值, 又叫解引用
+ */
+void getReferenceAndGetValue() {
+    int i = 10;
+    printf("%d\n", i); // 10, 取变量i的值           直接访问
+    printf("%d\n", &i); // 6422028, 取变量i的地址
+    int *int_pointer = &i;
+    printf("%d\n", *int_pointer); // 10,          间接访问
+
+    int *i_p; // 定义一个指针类型的变量
+    i_p = &i; // 把变量i的地址赋值给i_p
+    printf("%d\n", *i_p); // 10, *i_p *取值运算符, 取i_p地址对应的值
+    printf("%d", &*i_p); // 6422028, 相当于取地址
+}
