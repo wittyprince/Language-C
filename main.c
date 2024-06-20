@@ -201,3 +201,27 @@ void riskOfIndexOutOfBound() {
     printf("a[5]=%d\n", a[5]); // a[5]=6
     printf("a[6]=%d\n", a[6]); // a[6]=11
 }
+
+/**
+ * 字符串翻转
+ * // how are you boy and girl
+ */
+void charReverse() {
+    char c[1000];
+    gets(c);
+    char d[1000] = {'\0'}; // 这里赋初始值是为了防止在启动程序时C语言中的随机分配值造成的数据污染
+    int i = 0;
+    int j = strlen(c);
+    for (; i < strlen(c); ++i, j--) {
+        d[j - 1] = c[i];
+    }
+//    puts(d);
+    int result = strcmp(c, d);
+    if (result < 0) {
+        printf("%d\n", -1);
+    } else if (result > 0) {
+        printf("%d\n", 1);
+    } else {
+        printf("%d\n", 0);
+    }
+}
