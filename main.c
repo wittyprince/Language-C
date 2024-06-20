@@ -336,3 +336,14 @@ void mallocAndFree() {
     free(p);
     printf("free success");
 }
+
+void mallocForString() {
+    int i  = 0;
+    scanf("%d", &i);
+    char *p = (char *)malloc(i);
+    char c;
+    scanf("%c",&c); // 注意在scanf和gets中间使用scanf("%c",&c)去除换行
+    gets(p); // 如果不通过上面的scanf去除掉\n换行符, 那么gets不会被卡住
+//    fgets(p, i, stdin);
+    puts(p);
+}
