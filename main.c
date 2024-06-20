@@ -1,5 +1,6 @@
 #include <stdio.h> // 头文件, printf需要使用该头文件
 #include "string.h"
+#include "stdlib.h"
 
 #define PI1 3+2
 #define PI2 (3 + 2)
@@ -298,4 +299,22 @@ void traverseArrayByPointer() {
     for (int i = 0; i < 5; ++i) {
         printf("%3d", *(p - i));
     }
+}
+
+/**
+ * malloc
+ * free
+ */
+void mallocAndFree() {
+    int size;
+    char *p; // void * 类型的指针不能偏移，所以不会定义无类型指针。
+    scanf("%d", &size); // 输入要申请的空间的大小
+    // malloc返回的void*代表无类型指针。
+    p = (char *)malloc(size); // 使用malloc动态申请堆空间
+    strcpy(p, "how are you ?");
+    puts(p);
+    // 1. free时必须使用malloc申请时返回的指针值，不能进行任何偏移，即不能使用free(p+1) 或 free(p-1)等等。
+    // 2. 使用malloc申请的空间，使用完毕后，必须手动free
+    free(p);
+    printf("free success");
 }
