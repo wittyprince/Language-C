@@ -268,3 +268,27 @@ void getReferenceAndGetValue() {
     printf("%d\n", *i_p); // 10, *i_p *取值运算符, 取i_p地址对应的值
     printf("%d", &*i_p); // 6422028, 相当于取地址
 }
+
+/**
+* 使用指针来遍历数组
+*/
+void traverseArrayByPointer() {
+    int a[5] = {1, 2, 3, 4, 5}; // 初始化一个整型数组
+    for (int i = 0; i < 5; ++i) { // 遍历打印
+        printf("%3d", a[i]);
+    }
+    printf("\n================\n");
+
+    int *p; // 声明一个指针
+    p = a; // 把整型数组a赋值给p, 这是因为 数组变量a中存放的是该数组的起始地址。所以可以把地址赋值给指针型变量p
+    p + 1; // 是p的地址+sizeof(int) (即0x616df0 + 4), 而不是p的地址+1(即0x616df0+1)
+    for (int i = 0; i < 5; ++i) {
+        printf("%3d", *(p+i));
+    }
+    printf("\n================\n");
+
+    p = &a[4]; // p 指向最后一个元素，进行逆序输出
+    for (int i = 0; i < 5; ++i) {
+        printf("%3d", *(p - i));
+    }
+}
