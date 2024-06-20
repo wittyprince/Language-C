@@ -55,6 +55,13 @@ void referenceOrValueTransfer() {
     printf("after a = %d\n", a);
 }
 
+// 数组名作为实参传递给子函数时，是弱化为指针的
+void traverseArray(char *d) {
+    *d = 'H'; // 指针法,
+    d[1] = 'E'; // 下标法
+    *(d + 2) = 'L';
+}
+
 int main() { // main()入口函数
     int i = 123;
     printf("Hello, World!\n"); // 函数内的代码内容
