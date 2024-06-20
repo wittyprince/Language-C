@@ -63,6 +63,24 @@ void traverseArray(char *d) {
     *(d + 2) = 'L';
 }
 
+char* print_stack() {
+    // 该方式分配的空间在stack中，print_stack()方法调用完后，stack中的空间可能会被其他函数使用，造成数据污染
+    char c[] = "how are you ?"; // 该方式 在main函数中的值打印时会乱码 0鷦a?
+//    char *c = "how old are you ?"; // 该方式不会乱码，为什么？
+    puts(c);
+    char *p = c;
+    return p;
+}
+
+char* print_malloc() {
+    char *p;
+    // 该方式分配的空间在heap中, heap空间中的空间如果不手动free, 其会伴随进程一直存在
+    p = (char *)malloc(100);
+    strcpy(p, "are you ok?");
+    puts(p);
+    return p;
+}
+
 int main() { // main()入口函数
     int i = 123;
     printf("Hello, World!\n"); // 函数内的代码内容
