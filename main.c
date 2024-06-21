@@ -347,3 +347,18 @@ void mallocForString() {
 //    fgets(p, i, stdin);
     puts(p);
 }
+
+
+/**
+ * 上台阶问题
+ * 假如有n个台阶，一次只能上1个台阶或2个台阶，请问走到第n个台阶有几种走法？
+ */
+int step(int n) {
+    if(n <= 0) {
+        return 0;
+    }
+    if(n <= 2) {
+        return n;
+    }
+    return step(n-1) + step(n-2);
+}
