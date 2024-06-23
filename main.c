@@ -91,6 +91,7 @@ typedef struct teacher {
 int main() { // main()入口函数
     // 结构体
     struct student s = {1001, "lele", 'M'};
+    printf("%d %s %c\n", s.num, s.name, s.sex);
     struct student *p; // 声明一个结构体指针p
     p = &s; // 对结构体s取地址，赋值给p
     // 借助成员选择操作符., 就可以通过p访问结构体的每个成员。
