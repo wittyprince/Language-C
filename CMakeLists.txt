@@ -3,4 +3,5 @@ project(Language_C C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Language_C main.c)
+add_executable(Language_C main.c
+        struct_header.h)

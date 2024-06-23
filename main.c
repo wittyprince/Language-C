@@ -1,6 +1,7 @@
 #include <stdio.h> // 头文件, printf需要使用该头文件
-#include "string.h"
-#include "stdlib.h"
+#include <string.h>
+#include <stdlib.h>
+#include "struct_header.h"
 
 #define PI1 3+2
 #define PI2 (3 + 2)
@@ -81,7 +82,47 @@ char* print_malloc() {
     return p;
 }
 
+// teacherAlias 等价于 struct teacher
+// teacherPointer 等价于 struct teacher*
+typedef struct teacher {
+
+} teacherAlias, *teacherPointer;
+
 int main() { // main()入口函数
+    // 结构体
+    struct student s = {1001, "lele", 'M'};
+    struct student *p; // 声明一个结构体指针p
+    p = &s; // 对结构体s取地址，赋值给p
+    // 借助成员选择操作符., 就可以通过p访问结构体的每个成员。
+    // (*p).num 加括号访问成员，是因为成员选择操作符. 的优先级高于取值* 的优先级
+    printf("%d %s %c\n", (*p).num, (*p).name, (*p).sex);
+    printf("%d %s %c\n", p->num, p->name, p->sex);
+
+    struct student sArray[] = {1003, "lel", 'M', 1005, "le", 'F'};
+    p = sArray;
+    printf("%d %s %c\n", (*p).num, (*p).name, (*p).sex);
+    printf("%d %s %c\n", p->num, p->name, p->sex);
+    p = p + 1;
+    printf("%d %s %c\n", (*p).num, (*p).name, (*p).sex);
+    printf("%d %s %c\n", p->num, p->name, p->sex);
+
+    printf("%d %s %c\n", sArray[1].num, sArray[1].name, sArray[1].sex);
+
+    // 使用malloc给结构体指针p申请空间，并对其成员赋值，再访问
+    p = (struct student*)malloc(sizeof(struct student));
+    p->num = 110;
+    p->sex = 'M';
+    strcpy(p->name, "LL");
+    printf("%d %s %c\n", p->num, p->name, p->sex);
+    (*p).num = 111;
+    (*p).sex = 'F';
+    strcpy((*p).name, "LLL");
+    printf("%d %s %c\n", p->num, p->name, p->sex);
+
+
+
+    printf("---------------------------\n");
+
     int i = 123;
     printf("Hello, World!\n"); // 函数内的代码内容
 
