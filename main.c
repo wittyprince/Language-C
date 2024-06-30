@@ -82,14 +82,21 @@ char* print_malloc() {
     return p;
 }
 
-// teacherAlias 等价于 struct teacher
-// teacherPointer 等价于 struct teacher*
+// TeacherAlias 等价于 struct teacher
+// TeacherPointer 等价于 struct teacher*
 typedef struct teacher {
 
-} teacherAlias, *teacherPointer;
+} TeacherAlias, *TeacherPointer;
 
 int main() { // main()入口函数
     // 结构体
+//    teacher t = {}; // C语言中编译报错, 但是C++中可以编译
+    struct teacher t2 = {};
+    struct teacher *t3;
+    TeacherAlias ss = {};
+    TeacherAlias * teacherAliasPointer;
+    TeacherPointer teacherPointer1;
+
     struct student s = {1001, "lele", 'M'};
     printf("%d %s %c\n", s.num, s.name, s.sex);
     struct student *p; // 声明一个结构体指针p
