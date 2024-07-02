@@ -97,9 +97,10 @@ int main() { // main()入口函数
     TeacherAlias * teacherAliasPointer;
     TeacherPointer teacherPointer1;
 
+//    struct student s1 = NULL; // 结构体不能赋值为NULL, 编译报错
     struct student s = {1001, "lele", 'M'};
     printf("%d %s %c\n", s.num, s.name, s.sex);
-    struct student *p; // 声明一个结构体指针p
+    struct student *p = NULL; // 声明一个结构体指针p, 结构体指针可以赋值为NULL
     p = &s; // 对结构体s取地址，赋值给p
     // 借助成员选择操作符., 就可以通过p访问结构体的每个成员。
     // (*p).num 加括号访问成员，是因为成员选择操作符. 的优先级高于取值* 的优先级
