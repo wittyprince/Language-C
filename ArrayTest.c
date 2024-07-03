@@ -6,7 +6,7 @@
 // 数组作为参数 传递到函数中使用的三种方式
 #include <stdio.h>
 
-// 声明普通数据类型参数用于接收实参
+// 声明普通数组类型参数用于接收实参
 void printArray(int a[], int length) {
     for (int i = 0; i < length; ++i) {
         printf("%2d", a[i]);
